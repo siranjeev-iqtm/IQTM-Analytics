@@ -1,0 +1,122 @@
+.loading {
+  height: 0;
+  width: 0;
+  padding: 15px;
+  border: 6px solid #fff;
+  border-right-color: #2caffe;
+  border-radius: 22px;
+  animation: rotate 1s infinite linear;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+@keyframes rotate {
+  100% {
+      -webkit-transform: rotate(360deg);
+  }
+}
+
+.sideBar {
+  width: 200px;
+  height: 100vh;
+  background-color: white;
+  position: fixed;
+  z-index: 125;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+  opacity: 0;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  transition: all 0.4s ease;
+}
+
+.sideBar.active {
+  opacity: 1;
+  transform: translateX(0%);
+  background-color: #fff;
+}
+
+.main {
+  transition: all 0.4s ease;
+}
+
+.sideBar.active~.main {
+  padding-left: 200px !important;
+}
+
+@media(max-width:700px) {
+  .sideBar.active~.main {
+      padding-left: 0px !important;
+  }
+}
+
+.nav {
+  width: 100%;
+  height: 10vh;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 124;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
+}
+
+.toggle {
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  margin-top: 0px;
+  cursor: pointer;
+  position: fixed;
+  top: 15px;
+  left: 20px;
+  z-index: 222;
+}
+
+.toggle:before,
+.toggle:after,
+.toggle div {
+  background: #000000;
+  content: "";
+  display: block;
+  height: 3px;
+  border-radius: 3px;
+  margin: 5px;
+  transition: 0.5s;
+}
+
+.toggle.clicked:before {
+  transform: translateY(8px) rotate(135deg);
+  /* background: #fff; */
+}
+
+.toggle.clicked:after {
+  transform: translateY(-8px) rotate(-135deg);
+  /* background: #fff; */
+}
+
+.toggle.clicked div {
+  transform: scale(0);
+}
+
+.toggle {
+  transition: .4s ease;
+}
+
+.toggle.clicked {
+  margin-left: 200px;
+}
+
+/* .elems {
+  box-shadow: rgba(60, 64, 67, 0.134) 0px 1px 2px 0px, rgba(60, 64, 67, 0.096) 0px 2px 6px 2px;
+} */
+
+.login-btn {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
